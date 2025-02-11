@@ -29,7 +29,7 @@ os.makedirs(save_dir, exist_ok=True)
 batch_size = 5 # 8 # 32 # 4
 num_epochs = 100
 learning_rate = 5e-5  # 0.0001  # 0.001
-
+'''
 ### 指定版本
 commit_hash = "ca8657a"  # 示例提交哈希值
 access_token = 'your access_token'
@@ -42,7 +42,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name, revision=commit_hash, use_
 clip_model = AutoModel.from_pretrained(model_name, trust_remote_code=True).to(device)  # model_name  dtype=bfloat16
 image_processor = AutoImageProcessor.from_pretrained(model_name, trust_remote_code=True)  # from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name) # from_pretrained(model_name)
-'''
+
 # clip_model = clip_model.float()  # senwang add. convert to float32, 加了这个训练，直接显存就不够了
 
 
