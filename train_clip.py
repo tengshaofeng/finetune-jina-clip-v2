@@ -68,8 +68,7 @@ def evaluate_model(model, dataloader, device):
             images, texts = dataiter
             images = images.to(device)
             texts = preprocess_text(texts).to(device)
-            loss, output = model(input_dis=texts, piexel_values=images, return_loss=True, return_dict=False)
-
+            loss, output = model(input_ids=texts, pixel_values=images, return_loss=True, return_dict=False)
             total_loss += loss.item()
             
             # 获取预测结果
@@ -157,8 +156,7 @@ def train():
             images = images.to(device)
             texts = preprocess_text(texts).to(device)
             
-            loss, output = clip_model(input_dis=texts, piexel_values=images, return_loss=True, return_dict=False)
-
+            loss, output = clip_model(input_ids=texts, pixel_values=images, return_loss=True, return_dict=False)
             # 反向传播
             optimizer.zero_grad()
             loss.backward()
