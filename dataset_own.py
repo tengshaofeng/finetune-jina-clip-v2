@@ -5,7 +5,7 @@ import json
 import os
 import numpy as np
 import random
-from util.transform import *
+from util_transform import *
 curdir = os.path.dirname(__file__)
 save_dir = os.path.join(curdir, 'util/image_retrival/')
 categorys_dict = {0: '上衣', 1: '裙装', 2: '下衣', 3: '箱包', 4: '鞋子', 5: '配饰', 6: '零食', 7: '美妆', 8: '瓶饮', 9: '家具',
