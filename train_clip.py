@@ -68,10 +68,12 @@ def evaluate_model(model, dataloader, device):
             images, texts = dataiter
             images = images.to(device)
             texts = preprocess_text(texts).to(device)
-            loss, output = model(input_ids=texts, pixel_values=images, return_loss=True, return_dict=False)
+            output = model(input_ids=texts, pixel_values=images, return_loss=True, return_dict=True)
+            loss = output.loss
             total_loss += loss.item()
             
             # 获取预测结果
+            logits_per_text = output.logits_per_text
             _, predicted = torch.max(logits_per_text, dim=1)
             correct += (predicted == torch.arange(len(texts), device=device)).sum().item()
             total += len(texts)
@@ -156,7 +158,8 @@ def train():
             images = images.to(device)
             texts = preprocess_text(texts).to(device)
             
-            loss, output = clip_model(input_ids=texts, pixel_values=images, return_loss=True, return_dict=False)
+            output = clip_model(input_ids=texts, pixel_values=images, return_loss=True, return_dict=True)
+            loss = output.loss
             # 反向传播
             optimizer.zero_grad()
             loss.backward()
