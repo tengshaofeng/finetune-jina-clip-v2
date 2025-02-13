@@ -28,7 +28,7 @@ class ImageTextDataset(Dataset):
                 self.target_data_mj_only = json.load(file)
             # f_sale_dict = curdir + '/util/sales_predict/total_sp_dict_spuid2saletargetlife_from2016_offline_only.json' 
             # with open(f_sale_dict, 'r') as file:  # total_sp_dict_spuid2saletarget
-            #     self.target_data_offline_only = json.load(file)  # 吊牌价喵街线上和线下是一致的
+            #     self.target_data_offline_only = json.load(file)  # 吊牌价线上和线下是一致的
             f_spu2anchor = os.path.join(save_dir, 'fea_extract_dict_spuid2img2anchor.json')
             self.spu2anchor = json.loads(open(f_spu2anchor, 'r').read())
             self.image_paths.sort()
@@ -154,7 +154,6 @@ class ImageTextDataset(Dataset):
         total = len(fnames)
         for i, fname in enumerate(fnames):
             print(f'{i}/{total}, {fname}')
-            # fname = '/Users/tengbaoqiang/Documents/dataset/银泰智选/样衣素材_anyfit_merge/cebcd538cf08ea1b9ff4d454fd7ef612ec384911_m5.jpg'
             try:
                 name = os.path.basename(fname)
                 spu_id = name.split('_')[0]
