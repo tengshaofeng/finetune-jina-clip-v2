@@ -9,4 +9,4 @@ dataset_own.py
 ## then starting training:
 python train_clip.py
 ## or  starting training using accerlerator
-python train_clip_accerlerator.py
+python train_clip_accelerator.py
