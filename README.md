@@ -10,3 +10,6 @@ dataset_own.py
 python train_clip.py
 ## or  starting training using accerlerator
 python train_clip_accelerator.py
+
+## training starting like
+![EB18249A-09CF-462D-9470-A53C27B3E49C](https://github.com/user-attachments/assets/dedf2c06-82a5-42d9-9914-3266efaddcd8)
